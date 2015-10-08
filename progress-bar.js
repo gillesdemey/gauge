@@ -65,7 +65,7 @@ ProgressBar.cp437 = {
   endgroup: "▌",
   complete: "▓",
   incomplete: "░",
-  spinner: "┤┘┴└├┌┬",
+  spinner: "▀▐▄▌",
   subsection: "→"
 }
 
