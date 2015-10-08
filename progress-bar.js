@@ -56,7 +56,7 @@ ProgressBar.unicode = {
   endgroup: "╟",
   complete: "█",
   incomplete: "░",
-  spinner: "▀▐▄▌",
+  spinner: "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏",
   subsection: "→"
 }
 
