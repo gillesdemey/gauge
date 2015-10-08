@@ -1,5 +1,5 @@
 "use strict"
-var hasUnicode = require("has-unicode")
+var getCharacterSet = require("cli-character-set")
 var ansi = require("ansi")
 var align = {
   center: require("lodash.pad"),
@@ -28,7 +28,7 @@ var ProgressBar = module.exports = function (options, cursor) {
   }
   this.cursor = cursor
   this.showing = false
-  this.theme = options.theme || (hasUnicode() ? ProgressBar.unicode : ProgressBar.ascii)
+  this.theme = options.theme || (ProgressBar[getCharacterSet()])
   this.template = options.template || [
     {type: "name", separated: true, length: 25},
     {type: "spinner", separated: true},
@@ -52,13 +52,23 @@ var ProgressBar = module.exports = function (options, cursor) {
 ProgressBar.prototype = {}
 
 ProgressBar.unicode = {
-  startgroup: "╢",
-  endgroup: "╟",
-  complete: "█",
+  startgroup: "▐",
+  endgroup: "▌",
+  complete: "▓",
   incomplete: "░",
   spinner: "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏",
   subsection: "→"
 }
+
+ProgressBar.cp437 = {
+  startgroup: "▐",
+  endgroup: "▌",
+  complete: "▓",
+  incomplete: "░",
+  spinner: "┤┘┴└├┌┬",
+  subsection: "→"
+}
+
 
 ProgressBar.ascii = {
   startgroup: "|",
